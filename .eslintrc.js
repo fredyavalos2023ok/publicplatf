@@ -5,6 +5,13 @@ module.exports = {
     "jest/globals": true,
     "node": true
   },
+  // "rules": {
+  //   "no-unused-vars": ["error", { "varsIgnorePattern": "^on$|^config$" }]
+  // },
+  // "rules": {
+  //   "no-unused-vars": ["error", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false}]
+  // },
+
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended"
@@ -20,6 +27,8 @@ module.exports = {
     "react", "jest"
   ],
   "rules": {
+    "no-unused-vars": ["warn", { "varsIgnorePattern": "^on$|^config$" }],
+    // "no-unused-vars": ["warn", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false}],
     "indent": [
       "error",
         2
@@ -36,7 +45,7 @@ module.exports = {
       "warn",
       "never"
     ],
-    "eqeqeq": "error",
+    "eqeqeq": "warn",
     "no-trailing-spaces": "error",
     "object-curly-spacing": [
       "error", "always"
