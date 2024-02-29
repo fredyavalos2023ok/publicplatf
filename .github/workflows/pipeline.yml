@@ -35,8 +35,18 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           command: npm run test:e2e
-          start: npm run start-test 
+          start: npm run start-test
           wait-on: http://localhost:5000
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v2
+        with:
+          publish-dir: ./build  
+          production-branch: main  
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+
+        
+
 
   deploy_production:
     name: Vercel Production Deployment
